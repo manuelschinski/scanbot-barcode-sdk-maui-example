@@ -65,7 +65,9 @@
     <ItemGroup>
         <PackageReference Include="Scanbot.Xamarin.Forms.ImagePicker" Version="0.0.3-beta.1" />
         <PackageReference Include="ScanbotBarcodeSDK.MAUI" Version="4.2.1" />
-        <PackageReference Include="Microsoft.Maui.Controls" Version="8.0.7" />
+            <ItemGroup Condition="$(TargetFramework.Contains('net8.'))">
+        <PackageReference Include="Microsoft.Maui.Controls" Version="8.0.*" />
+    </ItemGroup>
     </ItemGroup>
     <ItemGroup>
       <AndroidResource Include="Platforms\Android\Resources\layout\barcode_camera_view.xml" />
