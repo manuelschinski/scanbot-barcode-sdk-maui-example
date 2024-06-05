@@ -56,14 +56,13 @@
         <MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
     </ItemGroup>
     <ItemGroup>
-        <Folder Include="Pages\" />
         <Folder Include="Models\" />
         <Folder Include="Common\" />
     </ItemGroup>
     <!-- ===================== Android Project References =====================  -->
     <ItemGroup>
         <PackageReference Include="Scanbot.Xamarin.Forms.ImagePicker" Version="0.0.3-beta.1" />
-        <PackageReference Include="ScanbotBarcodeSDK.MAUI" Version="4.2.1" />
+        <PackageReference Include="ScanbotBarcodeSDK.MAUI" Version="4.2.2-beta.3" />
         <PackageReference Include="Microsoft.Maui.Controls" Version="8.0.7" />
     </ItemGroup>
 </Project>
