@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-BarcodeScannerManuel.Platforms.Android.Android_ScanditViewModel"
+             xmlns:scandit="clr-namespace:Scandit.DataCapture.Core.UI.Maui;assembly=ScanditCaptureCoreMaui"
+             xmlns:vm="clr-namespace:BarcodeScannerManuel.Platforms.Android"
+             x:Class="BarcodeScannerManuel.forms.Scandit">
+    <ContentPage.BindingContext>
+        <vm:Android_ScanditViewModel x:Name="viewModel"/>
+    </ContentPage.BindingContext>
+    <Grid ColumnSpacing="2" 
+          RowSpacing="2"
+          Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="250"/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Frame Grid.Row="0" Grid.ColumnSpan="3" Style="{StaticResource RoundedLabelFrame}">
+            <AbsoluteLayout>
+                <scandit:DataCaptureView x:Name="dataCaptureView"
+                                         AbsoluteLayout.LayoutBounds="0,0,1,1"
+                                         AbsoluteLayout.LayoutFlags="All"
+                                         DataCaptureContext="{Binding DataCaptureContext}" >
+                </scandit:DataCaptureView>
+                <Label AbsoluteLayout.LayoutBounds="0.02,0,Autosize,Autosize"
+                       AbsoluteLayout.LayoutFlags="PositionProportional"
+                       TextColor="Black"                       
+                       FontAttributes="Bold"
+                       FontSize="15"
+                       Text="{Binding SelectedMode}"/>
+                <Switch AbsoluteLayout.LayoutBounds="0.05,0.05,AutoSize,AutoSize"
+                        AbsoluteLayout.LayoutFlags="PositionProportional"
+                        IsToggled="{Binding SwitchMode}"                        
+                        BackgroundColor="Transparent"
+                        OnColor="GreenYellow"
+                        ThumbColor="Black" 
+                        Scale="1.2"
+                        WidthRequest="40"/>
+                <ImageButton AbsoluteLayout.LayoutBounds="0.95,0.05,AutoSize,AutoSize"
+                             AbsoluteLayout.LayoutFlags="PositionProportional"
+                             WidthRequest="50"
+                             HeightRequest="50"
+                             Command="{Binding FullscreenCommand}"
+                             Source="fullscreen.png"/>
+                <Label Text="{Binding SliderString}" 
+                       AbsoluteLayout.LayoutBounds="0.5,0.90,Autosize,Autosize"
+                       AbsoluteLayout.LayoutFlags="PositionProportional"
+                       FontSize="18"
+                       TextColor="White"/>
+                <Slider AbsoluteLayout.LayoutBounds="0.5,0.98,Autosize,Autosize"
+                        AbsoluteLayout.LayoutFlags="PositionProportional"
+                        WidthRequest="150" 
+                        Scale="1.5"
+                        Minimum="1" Maximum="4" 
+                        Value="{Binding SliderValue}" 
+                        ThumbColor="LightBlue"  
+                        BackgroundColor="Transparent"/>
+            </AbsoluteLayout>
+        </Frame>
+        <Frame Grid.Row="1" Grid.ColumnSpan="3" Style="{StaticResource RoundedLabelFrame}">
+            <Label Text="{Binding BarcodeSource}" TextColor="White" />
+        </Frame>
+        <AbsoluteLayout Grid.Row="2" Grid.ColumnSpan="3">
+            <ImageButton Command="{Binding ReturnCommand}"
+                         Style="{StaticResource ReturnImageButton}"/>
+            <ImageButton Command="{Binding ScanCommand}"
+                         IsEnabled="{Binding IsScanButtonEnabled}"
+                         Style="{StaticResource ScanImageButton}"/>
+            <ImageButton Command="{Binding FlashlightCommand}" 
+                         Style="{StaticResource FlashlightImageButton}"/>
+        </AbsoluteLayout>
+    </Grid>
+</ContentPage>

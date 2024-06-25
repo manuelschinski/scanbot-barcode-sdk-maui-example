@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="BarcodeScannerManuel.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:BarcodeScannerManuel.forms"
+    Shell.FlyoutBehavior="Flyout"
+    Title="BarcodeScannerManuel">    
+
+    <ShellContent Title="Startseite" ContentTemplate="{DataTemplate local:MainPage}" Route="MainPage"/>
+    <ShellContent Title="Normaler Scan" ContentTemplate="{DataTemplate local:Scandit}" Route="NormalScan"/>
+    <ShellContent Title="Vollbild Scan" ContentTemplate="{DataTemplate local:FullscreenScandit}" Route="FullscreenScan"/>
+
+</Shell>

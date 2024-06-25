@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-BarcodeScannerManuel.Platforms.Android.Android_FullscreenViewModel"
+             xmlns:scandit="clr-namespace:Scandit.DataCapture.Core.UI.Maui;assembly=ScanditCaptureCoreMaui"
+             xmlns:vm="clr-namespace:BarcodeScannerManuel.Platforms.Android"
+             x:Class="BarcodeScannerManuel.forms.FullscreenScandit">
+    <ContentPage.BindingContext>
+        <vm:Android_ScanditViewModel x:Name="viewModel"/>
+    </ContentPage.BindingContext>
+
+    <AbsoluteLayout Margin="5">
+        <scandit:DataCaptureView x:Name="dataCaptureView"
+                                     AbsoluteLayout.LayoutBounds="0,0,1,1"
+                                     AbsoluteLayout.LayoutFlags="All"
+                                     DataCaptureContext="{Binding DataCaptureContext}">
+        </scandit:DataCaptureView>
+        <Label AbsoluteLayout.LayoutBounds="0.02,0.02,Autosize,Autosize"
+               AbsoluteLayout.LayoutFlags="PositionProportional"
+               TextColor="Black"                       
+               FontAttributes="Bold"
+               FontSize="15"
+               Text="{Binding SelectedMode}"/>
+        <Switch AbsoluteLayout.LayoutBounds="0.05,0.05,AutoSize,AutoSize"
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                IsToggled="{Binding SwitchMode}"                        
+                BackgroundColor="Transparent"
+                OnColor="GreenYellow"
+                ThumbColor="Black" 
+                Scale="1.2"
+                WidthRequest="40"/>
+        <Frame Style="{StaticResource RoundedLabelFrame}" 
+               AbsoluteLayout.LayoutBounds="0.5,0.78,Autosize,Autosize"
+               AbsoluteLayout.LayoutFlags="PositionProportional"
+               Opacity="{Binding OpacityValue}">
+            <Label Text="{Binding BarcodeSource}" TextColor="White"/>
+        </Frame>
+        <Label Text="{Binding SliderString}" 
+               AbsoluteLayout.LayoutBounds="0.5,0.82,Autosize,Autosize"
+               AbsoluteLayout.LayoutFlags="PositionProportional"
+               FontSize="18"
+               TextColor="White"/>
+        <Slider AbsoluteLayout.LayoutBounds="0.5,0.85,Autosize,Autosize"
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                WidthRequest="150" 
+                Scale="1.75"
+                Minimum="1" Maximum="4" 
+                Value="{Binding SliderValue}" 
+                ThumbColor="LightBlue"  
+                BackgroundColor="Transparent"/>
+        <ImageButton Command="{Binding FlashlightCommand}"
+                     Style="{StaticResource FlashlightImageButton}"/>
+        <ImageButton Command="{Binding ScanCommand}"
+                     IsEnabled="{Binding IsScanButtonEnabled}"
+                     Style="{StaticResource ScanImageButton}"/>
+        <ImageButton Command="{Binding ReturnCommand}"
+                     Style="{StaticResource ReturnImageButton}"/>
+    </AbsoluteLayout>
+</ContentPage>

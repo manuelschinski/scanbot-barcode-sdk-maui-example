@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BarcodeScannerManuel.forms.GoogleVision">
+    
+    <AbsoluteLayout>
+        <Grid ColumnSpacing="5" 
+          RowSpacing="5"
+          Margin="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="70"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Frame Grid.Row="0" Grid.ColumnSpan="3" Style="{StaticResource RoundedLabelFrame}">
+
+            </Frame>
+            <Frame Grid.Row="1" Grid.ColumnSpan="3" Style="{StaticResource RoundedLabelFrame}">
+
+            </Frame>
+            <Frame Grid.Row="2" Grid.ColumnSpan="3" Style="{StaticResource RoundedLabelFrame}" HorizontalOptions="Center" Padding="0">
+                <VerticalStackLayout VerticalOptions="End" WidthRequest="160">
+                    <Label Text="{Binding SliderString}" HorizontalOptions="Center" TextColor="White"/>
+                    <Slider WidthRequest="150" Minimum="1" Maximum="10" Value="{Binding SliderValue}"/>
+                </VerticalStackLayout>
+            </Frame>
+
+        </Grid>
+        
+        <ImageButton Command="{Binding ReturnCommand}"
+                     Style="{StaticResource ReturnImageButton}"/>
+        <ImageButton Command="{Binding ScanCommand}"
+                     Style="{StaticResource ScanImageButton}"/>
+        <ImageButton Command="{Binding FlashlightCommand}" 
+                     Style="{StaticResource FlashlightImageButton}"/>
+    </AbsoluteLayout>
+</ContentPage>

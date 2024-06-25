@@ -1,0 +1,63 @@
+﻿<?xml version = "1.0" encoding = "UTF-8" ?>
+<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:BarcodeScannerManuel"
+             x:Class="BarcodeScannerManuel.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Shell" ApplyToDerivedTypes="True">
+                <Setter Property="Shell.TitleColor" Value="WhiteSmoke" />                
+            </Style>
+            <Style TargetType="Frame" x:Key="RoundedLabelFrame">
+                <Setter Property="Padding" Value="5"/>
+                <Setter Property="Margin" Value="0,5,0,5"/>
+                <Setter Property="BackgroundColor" Value="#2F2F2F"/>
+                <Setter Property="CornerRadius" Value="5"/>
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="FontSize" Value="Default"/>
+                <Setter Property="BackgroundColor" Value="#9B9B9B"/>
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="CornerRadius" Value="30"/>
+                <Setter Property="WidthRequest" Value="50"/>
+            </Style>
+            <Style TargetType="ImageButton" x:Key="ScanImageButton">
+                <Setter Property="BackgroundColor" Value="LightGray"/>
+                <Setter Property="WidthRequest" Value="50"/>
+                <Setter Property="HeightRequest" Value="50"/>
+                <Setter Property="CornerRadius" Value="10"/>
+                <Setter Property="BorderWidth" Value="1"/>
+                <Setter Property="BorderColor" Value="White"/>
+                <Setter Property="Source" Value="Scan_Icon.png"/>
+                <Setter Property="AbsoluteLayout.LayoutBounds" Value="0.5,0.95,Autosize,Autosize"/>
+                <Setter Property="AbsoluteLayout.LayoutFlags" Value="PositionProportional"/>
+            </Style>
+            <Style TargetType="ImageButton" x:Key="ReturnImageButton">
+                <Setter Property="BackgroundColor" Value="LightGray"/>
+                <Setter Property="WidthRequest" Value="50"/>
+                <Setter Property="HeightRequest" Value="50"/>
+                <Setter Property="CornerRadius" Value="10"/>
+                <Setter Property="BorderWidth" Value="1"/>
+                <Setter Property="BorderColor" Value="White"/>
+                <Setter Property="Source" Value="Return_Icon.png"/>
+                <Setter Property="AbsoluteLayout.LayoutBounds" Value="0.1,0.95,Autosize,Autosize"/>
+                <Setter Property="AbsoluteLayout.LayoutFlags" Value="PositionProportional"/>
+            </Style>
+            <Style TargetType="ImageButton" x:Key="FlashlightImageButton">
+                <Setter Property="BackgroundColor" Value="LightGray"/>
+                <Setter Property="WidthRequest" Value="50"/>
+                <Setter Property="HeightRequest" Value="50"/>
+                <Setter Property="CornerRadius" Value="10"/>
+                <Setter Property="BorderWidth" Value="1"/>
+                <Setter Property="BorderColor" Value="White"/>
+                <Setter Property="Source" Value="Taschenlampe.png"/>
+                <Setter Property="AbsoluteLayout.LayoutBounds" Value="0.9,0.95,Autosize,Autosize"/>
+                <Setter Property="AbsoluteLayout.LayoutFlags" Value="PositionProportional"/>
+            </Style>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
+                <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
